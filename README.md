@@ -461,7 +461,7 @@ int main(){
     return 0;
 }```
 
-![pointer2pointer.png]
+![](pointer2pointer.png)
 
 #### Type casting
 ```c
