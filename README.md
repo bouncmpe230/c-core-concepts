@@ -1,5 +1,3 @@
-# PS3
-
 # **C Programming: Understanding Core Concepts**
 
 ## **1. Why C?**
