@@ -457,11 +457,15 @@ int main(){
     //int *px = &x;
     //ppc = &px; // Not valid! types do not match! (char **, int **)
     return 0;
-}```
+}
+```
+
 
 ![](pointer2pointer.png)
 
+
 #### Type casting
+
 ```c
 #include <stdio.h>
 int main()
