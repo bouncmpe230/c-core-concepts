@@ -599,6 +599,7 @@ C uses a **right-left rule** to interpret pointer declarations.
 - `int (*func)();` → Pointer to a function returning an `int`.
 - `int *func();` → function returning pointer to `int`.
 
+Explanation and more examples can be found in [this link](https://cseweb.ucsd.edu/~gbournou/CSE131/rt_lt.rule.html).
 
 ![](complex_patterns.png)
 ---
