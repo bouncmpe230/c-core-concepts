@@ -1,9 +1,10 @@
 # C Core Concepts for Systems Programming (CMPE230)
 
-> This document introduces C through the lens of **systems programming**.
-> The goal is not only to learn C syntax, but to understand **how programs are built, how memory is organized, and how the machine executes your code**.
 
----
+This document introduces C through the lens of **systems programming**.
+The goal is not only to learn C syntax, but to understand **how programs are built, how memory is organized, and how the machine executes your code**.
+
+
 
 # 1. Why C?
 
