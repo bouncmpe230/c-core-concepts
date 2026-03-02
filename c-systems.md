@@ -23,9 +23,9 @@ C is used in:
 * Network stacks
 * Performance-critical libraries
 
-💡 In this course, C is not treated as just a programming language, but as a concrete model for understanding how code is compiled, linked, loaded, and executed on a computer system.
+In this course, C is not treated as just a programming language, but as a concrete model for understanding how code is compiled, linked, loaded, and executed on a computer system.
 
----
+
 
 # 2. Structure of a C Program
 
@@ -57,7 +57,6 @@ int main() {
 }
 ```
 
----
 
 # 3. From Source Code to Executable
 
@@ -95,7 +94,6 @@ Compile and link:
 gcc main.c -o program
 ```
 
----
 
 ## 3.2 Inspecting Object Files
 
@@ -116,7 +114,6 @@ Important sections:
 
 Understanding these sections is essential in systems programming.
 
----
 
 # 4. Program Memory Layout
 
@@ -156,7 +153,6 @@ int main() {
 
 Observe how addresses differ.
 
----
 
 # 5. Data Types in C
 
@@ -188,7 +184,6 @@ int main() {
 
 Sizes depend on architecture.
 
----
 
 ## 5.2 Derived and User-defined Types
 
@@ -222,7 +217,6 @@ Point p1 = {10, 20};
 enum Color { RED, GREEN, BLUE };
 ```
 
----
 
 ## 5.3 Struct Padding and Alignment
 
@@ -238,13 +232,6 @@ Actual (typically): 8 bytes
 
 Why? Memory alignment.
 
-Understanding padding is critical for:
-
-* File formats
-* Network protocols
-* ABI compatibility
-
----
 
 # 6. Type Modifiers
 
@@ -271,7 +258,6 @@ printf("%lu\n", sizeof(long));
 
 Sizes vary by architecture.
 
----
 
 # 7. Declaration vs Definition
 
@@ -287,7 +273,6 @@ extern int num;
 int num = 100;
 ```
 
----
 
 # 8. Multi-file Programs and Linking
 
@@ -337,7 +322,6 @@ If the definition is missing → linker error:
 undefined reference to add
 ```
 
----
 
 # 9. Pointers
 
@@ -353,8 +337,6 @@ printf("value of p: %p\n", (void*)p);
 printf("dereferenced p: %d\n", *p);
 ```
 
----
-
 ## 9.1 Pointer Arithmetic
 
 ```c
@@ -367,7 +349,6 @@ printf("%p\n", (void*)(p+1));
 
 `p+1` moves by `sizeof(int)` bytes.
 
----
 
 ## 9.2 Pointer to Pointer
 
@@ -379,7 +360,6 @@ char **ppc = &pc;
 
 Type compatibility matters.
 
----
 
 # 10. Heap and Dynamic Memory
 
@@ -400,7 +380,6 @@ Common errors:
 * Double free
 * Dereferencing NULL
 
----
 
 # 11. Void Pointers
 
@@ -419,7 +398,6 @@ Used in:
 * malloc
 * Generic libraries
 
----
 
 # 12. Function Pointers
 
@@ -440,7 +418,6 @@ Used in:
 * System libraries
 * Event-driven programs
 
----
 
 # 13. Reading Complex Declarations
 
@@ -453,7 +430,6 @@ int (*f)();    → pointer to function returning int
 int *f();      → function returning pointer to int
 ```
 
----
 
 # 14. Debugging and Memory Inspection
 
@@ -476,7 +452,6 @@ x/4xb &x
 
 Observe raw memory.
 
----
 
 # Final Thoughts
 
