@@ -12,10 +12,13 @@ int main () {
   /* output each array element's value */
 
   for ( i = 0; i < 5; i++ ) {
-    //printf("(balance[%d]) : %f\n", i, balance[i] );
-    //printf("*(balance + %d) : %f\n", i, *(balance + i) );
+    printf("(balance[%d]) : %f\n", i, balance[i] );
+    printf("*(balance + %d) : %f\n", i, *(balance + i) );
     printf("*(p + %d) : %f associated address %p\n",  i, *(p + i), p + i);
   }
+
+  p = p + 4;
+  printf("*(p + %d) : %f associated address %p\n", 0, *(p), p);
 
   return 0;
 }
