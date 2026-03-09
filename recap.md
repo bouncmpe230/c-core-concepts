@@ -4,9 +4,8 @@
 
 Understand how **program structure, structs, pointers, and arrays** work together in C.
 
----
 
-# Big Question
+# Question
 
 How can we write a program that:
 
@@ -22,7 +21,6 @@ What C concepts do we need?
 * pointers
 * pass-by-value vs pass-by-address
 
----
 
 # Minimal C Program
 
@@ -48,7 +46,6 @@ Key ideas:
 * `main()` is program entry
 * program must be **compiled before execution**
 
----
 
 # Running Example: A Point
 
@@ -75,8 +72,6 @@ Point p = {3,4};
 printf("%d %d\n", p.x, p.y);
 ```
 
----
-
 # Task 1
 
 Create a point and print it.
@@ -86,13 +81,6 @@ Point p = {3,4};
 printf("(%d,%d)\n", p.x, p.y);
 ```
 
-Output
-
-```
-(3,4)
-```
-
----
 
 # Splitting Code into Files
 
@@ -103,8 +91,6 @@ point.h
 point.c
 main.c
 ```
-
----
 
 # Header File
 
@@ -127,8 +113,6 @@ void move_point(Point *p, int dx, int dy);
 
 Header files contain **declarations**.
 
----
-
 # Implementation File
 
 `point.c`
@@ -149,7 +133,6 @@ void move_point(Point *p, int dx, int dy) {
 
 Source files contain **definitions**.
 
----
 
 # Main Program
 
@@ -172,7 +155,6 @@ int main() {
 }
 ```
 
----
 
 # Compiling Multiple Files
 
@@ -190,7 +172,6 @@ gcc -c point.c
 gcc main.o point.o -o program
 ```
 
----
 
 # Task 2
 
@@ -206,41 +187,18 @@ move_point(&p,2,1);
 print_point(p);
 ```
 
-Answer
-
-```
-(3,4)
-(5,5)
-```
-
----
 
 # Why Use a Pointer?
 
 Consider this function:
 
 ```c
-void move_point_wrong(Point p, int dx, int dy) {
+void move_point(Point p, int dx, int dy) {
     p.x += dx;
     p.y += dy;
 }
 ```
 
-Call:
-
-```c
-move_point_wrong(p,2,1);
-```
-
-Result:
-
-```
-(3,4)
-```
-
-Why?
-
----
 
 # Pass By Value
 
@@ -259,7 +217,6 @@ main p      function p
 
 Changing the copy does **not** change the original.
 
----
 
 # Pass By Address
 
@@ -280,7 +237,6 @@ move_point(&p,2,1);
 
 Now the function receives the **address**.
 
----
 
 # Memory View
 
@@ -304,7 +260,6 @@ p -----> {3,4}
 
 Changing `*p` modifies the original.
 
----
 
 # Task 3
 
@@ -328,7 +283,7 @@ means
 
 Access field through a pointer.
 
----
+
 
 # Arrays and Pointers
 
@@ -351,7 +306,6 @@ coords[1]
 
 Both refer to the same memory.
 
----
 
 # Memory Layout
 
@@ -372,7 +326,6 @@ ptr ---> coords[0]
 *(ptr + 1)  = 4
 ```
 
----
 
 # Task 4
 
@@ -385,68 +338,6 @@ int *ptr = coords;
 printf("%d\n", *(ptr + 1));
 ```
 
-Answer
-
-```
-4
-```
-
----
-
-# Common Mistakes
-
-### Forgetting `&`
-
-Wrong:
-
-```c
-move_point(p,2,1);
-```
-
-Correct:
-
-```c
-move_point(&p,2,1);
-```
-
----
-
-### Using `.` instead of `->`
-
-Wrong
-
-```c
-p.x
-```
-
-Correct
-
-```c
-p->x
-```
-
-when `p` is a pointer.
-
----
-
-### Forgetting to link files
-
-Error:
-
-```
-undefined reference to move_point
-```
-
-Fix:
-
-```
-gcc main.c point.c
-```
-
-
-
-
----
 
 # Arrays of Pointers
 
@@ -491,15 +382,6 @@ printf("%d\n", *ptrs[1]);
 printf("%d\n", *ptrs[2]);
 ```
 
-Output
-
-```
-10
-20
-30
-```
-
----
 
 # Memory View
 
@@ -522,16 +404,6 @@ index   value
 2       &c
 ```
 
-Pointer connections:
-
-```
-ptrs[0] ---> a (10)
-ptrs[1] ---> b (20)
-ptrs[2] ---> c (30)
-```
-
----
-
 # Access Patterns
 
 Two equivalent ways:
@@ -552,13 +424,6 @@ Example:
 printf("%d\n", *ptrs[1]);
 ```
 
-Output
-
-```
-20
-```
-
----
 
 # Running Example with Points
 
@@ -582,58 +447,7 @@ Access:
 printf("%d\n", points[1]->x);
 ```
 
-Output
 
-```
-3
-```
-
----
-
-# Memory View (Points)
-
-```
-p1 = {1,2}
-p2 = {3,4}
-p3 = {5,6}
-```
-
-Array of pointers:
-
-```
-points
-
-index   value
-0       &p1
-1       &p2
-2       &p3
-```
-
-Connections:
-
-```
-points[0] ---> p1
-points[1] ---> p2
-points[2] ---> p3
-```
-
----
-
-# Task
-
-What does this print?
-
-```c
-printf("%d\n", points[2]->y);
-```
-
-Answer
-
-```
-6
-```
-
----
 
 # Array of Pointers vs Pointer to Array
 
@@ -747,17 +561,3 @@ char *words[] = {"apple","banana","orange"};
 5. `int (*p)[5]` → pointer to array.
 
 
----
-
-# One Program Used Everything
-
-
-* program structure
-* header/source separation
-* compilation and linking
-* structs
-* pointers
-* pass-by-address
-* arrays and pointer arithmetic
-
-These ideas form the **foundation of systems programming in C**.
