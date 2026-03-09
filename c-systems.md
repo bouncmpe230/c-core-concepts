@@ -419,7 +419,309 @@ Used in:
 * Event-driven programs
 
 
-# 13. Reading Complex Declarations
+# 13. Reading Complex Pointer Declarations
+
+C declarations can look confusing:
+
+```c
+int *p[5];
+int (*p)[5];
+int *func();
+int (*func)();
+```
+
+A simple technique to read them:
+
+> **Right–Left Rule**
+
+
+
+## Right–Left Rule (Simplified)
+
+To read a C declaration:
+
+1. **Start at the variable name**
+2. **Look right**
+3. **Then look left**
+4. Repeat until finished
+
+Interpret symbols in order.
+
+Symbols mean:
+
+```text
+[]  → array
+()  → function
+*   → pointer
+```
+
+
+
+### Example 1
+
+```c
+int *p;
+```
+
+Start at **p**
+
+Right → nothing
+Left → `*`
+
+Result:
+
+```text
+p is a pointer to int
+```
+
+---
+
+### Example 2
+
+```c
+int *p[5];
+```
+
+Start at **p**
+
+Right → `[5]` → array
+Left → `*` → pointer
+
+Result:
+
+```text
+p is an array of 5 pointers to int
+```
+
+---
+
+#### Visual View
+
+```text
+p
+
+index
+0  → int *
+1  → int *
+2  → int *
+3  → int *
+4  → int *
+```
+
+Each element is a pointer.
+
+---
+
+### Example 3
+
+```c
+int (*p)[5];
+```
+
+Start at **p**
+
+Right → `[5]`
+Left → `*`
+
+But parentheses change priority.
+
+Interpretation:
+
+```text
+p is a pointer to an array of 5 ints
+```
+
+---
+
+## Visual Comparison
+
+### Array of pointers
+
+```c
+int *p[5];
+```
+
+Memory idea:
+
+```text
+p
+
+0 → int *
+1 → int *
+2 → int *
+3 → int *
+4 → int *
+```
+
+---
+
+### Pointer to array
+
+```c
+int (*p)[5];
+```
+
+Memory idea:
+
+```text
+p → [ int int int int int ]
+```
+
+---
+
+### Example 4
+
+```c
+int *func();
+```
+
+Start at **func**
+
+Right → `()` → function
+Left → `*` → pointer
+
+Result:
+
+```text
+func is a function returning pointer to int
+```
+
+---
+
+### Example 5
+
+```c
+int (*func)();
+```
+
+Start at **func**
+
+Left → `*` → pointer
+Right → `()` → function
+
+Result:
+
+```text
+func is a pointer to a function returning int
+```
+
+---
+
+## Why This Matters
+
+You will often see patterns like:
+
+```c
+char *argv[]
+```
+
+in `main()`:
+
+```c
+int main(int argc, char *argv[])
+```
+
+Meaning:
+
+```text
+argv is an array of pointers to char
+```
+
+Each pointer stores a string.
+
+---
+
+### Common Confusion
+
+
+```c
+int *p[5]
+```
+
+and
+
+```c
+int (*p)[5]
+```
+
+Remember:
+
+```text
+[] binds stronger than *
+```
+
+So
+
+```text
+int *p[5]
+```
+
+means
+
+```text
+array first → then pointer
+```
+
+---
+
+### Quick Practice
+
+What does this mean?
+
+```c
+char *words[3];
+```
+
+Answer:
+
+```text
+words is an array of 3 pointers to char
+```
+
+Common use:
+
+```c
+char *words[3] = {"cat", "dog", "fish"};
+```
+
+---
+
+### One More Practice
+
+```c
+int (*matrix)[5];
+```
+
+Answer:
+
+```text
+matrix is a pointer to an array of 5 ints
+```
+
+Used for **2D arrays**.
+
+
+## Key Takeaway
+
+To read complex declarations:
+
+```text
+Start at the variable name
+Look right
+Then look left
+Repeat
+```
+
+Symbols mean:
+
+```text
+[] → array
+() → function
+*  → pointer
+```
+
+Parentheses change priority.
+
 
 Right-left rule:
 
