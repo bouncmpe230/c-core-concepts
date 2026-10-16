@@ -6,7 +6,16 @@ C is a powerful and efficient language widely used in system programming, embedd
 
 - **Portability:** C programs can run with minimal changes across different platforms.
 - **Speed:** Faster execution compared to many high-level languages.
-- **General-Purpose:** Used for OS development, game engines, and even high-performance computing.
+- **General-Purpose:** Used for OS development, compiler, tool chaings, performance-critical libraries.
+
+
+C remains central in systems programming because it provides:
+
+* **Low-level memory access**
+* **Predictable data layout**
+* **Minimal abstraction overhead**
+* **Direct compilation to machine code**
+
 
 ---
 
@@ -50,6 +59,23 @@ C programs require compilation before execution. The process involves:
 3. **Assembly:** Generating machine code.
 4. **Linking:** Combining object files into an executable.
 
+
+```
+main.c
+   ↓
+Preprocessor
+   ↓
+Compiler
+   ↓
+Assembler
+   ↓
+Object file (.o)
+   ↓
+Linker
+   ↓
+Executable (a.out)
+```
+
 ### **Commands**
 
 - **Compile only:**
@@ -79,6 +105,9 @@ C programs require compilation before execution. The process involves:
     objdump -t a.out
     ```
     
+-d: disassemble
+-t: symbol table
+-h: section headers
 
 ---
 
