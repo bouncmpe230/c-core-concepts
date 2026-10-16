@@ -103,7 +103,17 @@ Executable (a.out)
     objdump -d a.out 
     objdump -d main.o 
     objdump -t a.out
+    nm main.o
     ```
+
+Important sections:
+
+| Section   | Description                    |
+| --------- | ------------------------------ |
+| `.text`   | Machine instructions           |
+| `.data`   | Initialized global variables   |
+| `.bss`    | Uninitialized global variables |
+| `.rodata` | Read-only constants            |
     
 -d: disassemble
 -t: symbol table
